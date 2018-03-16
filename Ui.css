@@ -1,0 +1,57 @@
+
+.ui.card {
+    width: 100%;
+    max-width: 25rem;
+    margin: 0 auto;
+    
+    .circular.icon {
+        margin: 1.5rem 0 0.1rem;
+        box-shadow: 0em 0em 0em 0.1em #F2711C inset;
+    }
+    
+    & > .content {
+        padding: 1.5rem;
+        
+        p {
+            text-align: justify;
+        }
+        
+        &.collapsible {
+            position: relative;
+            transition: height 250ms ease;
+            overflow: hidden;
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 80%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                visibility: visible;
+                background: linear-gradient(
+                    to top,
+                    rgba(255,255,255,1) 15%,
+                    rgba(255,255,255,0)
+                );
+                pointer-events: none;
+                transition: transform 250ms ease;
+                transform-origin: 50% 100%;
+                transform: rotateX(90deg);
+            }
+            
+            &.collapsed {
+                &:after {
+                    transform: rotateX(0deg);
+                }
+            }
+        }
+    }
+
+    .content-expand {
+        display: block;
+        font-size: 2rem;
+        text-align: center;
+    }
+}
